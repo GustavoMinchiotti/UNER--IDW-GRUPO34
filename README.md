@@ -1,9 +1,10 @@
 # UNER--IDW-GRUPO34
-Trabajo Final Integrador
+## Trabajo Final Integrador
 
-Integrantes: 
+### Integrantes:
 
-Maria Jimena Fernandez
-Gustavo Minchiotti
-Francisco Lopez 
-Alicia Viviana Montenegro
+- Maria Jimena Fernandez
+- Gustavo Minchiotti
+- Francisco Lopez
+- Alicia Viviana Montenegro
+
