@@ -1,0 +1,160 @@
+/* Reset de css para evitar problemas futuros*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: sans-serif;
+  }
+  
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  button, input, select, textarea {
+    font: inherit;
+    background: none;
+    border: none;
+    outline: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul, ol {
+    list-style: none;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #BBE5E4; /* fondo suave */
+    color: #222; /* alto contraste */
+    line-height: 1.6;
+    padding: 1rem;
+  }
+  
+  /* CONTENEDOR (toda la página)*/
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* ENCABEZADO */
+  header {
+    background-color: #F36D86;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  /* NAVEGACIÓN */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #70C8BC;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  nav a:hover {
+    color: #F36D86;
+  }
+  
+  /* SECCIONES */
+  section {
+    background-color: #fac6ba;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    color: #222;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  
+  section h2 {
+    color: #F36D86;
+    margin-bottom: 1rem;
+  }
+  
+  /* LISTAS */
+  ul {
+    list-style: none;
+    padding-left: 1rem;
+  }
+  
+  li::before {
+    content: "🎈";
+    margin-right: 0.5rem;
+  }
+  
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #70C8BC;
+    color: #222;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+  
+  /* Estilo escritorio */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #70C8BC;
+    padding: 1rem;
+    border-radius: 8px;
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+    transition: color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+  }
+  
+  nav a:hover {
+    background-color: #F36D86;
+    color: white;
+  }
+  
+  /* Media Query: Ajuste para Celu */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav a {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin: 0.3rem 0;
+      background-color: #F48D8E;
+      color: #222;
+    }
+  
+    nav a:hover {
+      background-color: #F36D86;
+      color: white;
+    }
+  }
