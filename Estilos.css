@@ -38,6 +38,42 @@
     line-height: 1.6;
     padding: 1rem;
   }
+
+  .salon {
+    width: 350px;
+    height: 195px;
+    border-radius: 12px;
+  }
+
+  .lista-salones{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0;
+  }
+
+  .lista-salones li{
+    text-align: center;
+    width: 300px;
+    margin-bottom: 2rem;
+  }
+
+  .botton {
+    background-color: #F36D86;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+  }
+
+  .botton:hover {
+    background-color: #c9566d;
+  }
   
   /* CONTENEDOR (toda la página)*/
   main {
