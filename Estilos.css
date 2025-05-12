@@ -139,14 +139,45 @@
   }
   
   /* FOOTER */
-  footer {
+/*   footer {
     text-align: center;
     padding: 1rem;
     background-color: #70C8BC;
     color: #222;
     font-size: 0.9rem;
     border-radius: 8px;
-  }
+  } */
+
+/* Estilos personalizados para el footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #70C8BC;  /* Fondo personalizado */
+    color: #222;  /* Color del texto */
+    font-size: 0.9rem;  /* Tamaño de fuente */
+    border-radius: 8px;  /* Bordes redondeados */
+}
+
+/* Enlaces de las redes sociales */
+footer a {
+    color: #222;  /* Color de los iconos (puedes ajustarlo a lo que desees) */
+    text-decoration: none;  /* Quitar subrayado */
+    margin: 0 15px;  /* Espaciado entre los iconos */
+    transition: color 0.3s;  /* Transición suave al pasar el ratón */
+}
+
+/* Efecto de hover */
+footer a:hover {
+    color: #f36d86;  /* Cambia el color cuando se pasa el ratón */
+}
+
+/* Tamaño de los iconos */
+footer i {
+    font-size: 30px;  /* Puedes ajustar el tamaño según lo que necesites */
+}
+
+
+
   
   /* Estilo escritorio */
 nav {
