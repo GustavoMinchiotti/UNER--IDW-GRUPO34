@@ -139,14 +139,33 @@
   }
   
   /* FOOTER */
-  footer {
+footer {
     text-align: center;
     padding: 1rem;
     background-color: #70C8BC;
     color: #222;
     font-size: 0.9rem;
     border-radius: 8px;
-  }
+}
+
+/* Enlaces redes*/
+footer a {
+    color: #222;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+/* Efecto de hover */
+footer a:hover {
+    color: #f36d86;  
+}
+
+/* Tamaño de los iconos */
+footer i {
+    font-size: 30px;  
+}
+
   
   /* Estilo escritorio */
 nav {
