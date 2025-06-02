@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Momentos Mágicos - Administrar Imágenes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Momentos Mágicos</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+            <li class="nav-item"><a class="nav-link" href="editarSalon.html">Salones</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="editarImagen.html">Imágenes</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <h2 class="mb-4">Administración de Imágenes</h2>
+
+    <form id="form-imagen" class="mb-5">
+      <input type="hidden" id="imagen-id" />
+      <div class="mb-3">
+        <label for="nombreImagen" class="form-label">Nombre de la Imagen</label>
+        <input type="text" class="form-control" id="nombreImagen" required />
+      </div>
+      <div class="mb-3">
+        <label for="archivo" class="form-label">Seleccionar Imagen</label>
+        <input type="file" class="form-control" id="archivo" accept="image/*" />
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar Imagen</button>
+      <button type="button" id="btn-cancelar" class="btn btn-secondary ms-2">Cancelar</button>
+    </form>
+
+    <div class="table-responsive">
+      <table class="table table-striped align-middle" id="tabla-imagenes">
+        <thead class="table-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Vista Previa</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container social-icons">
+      <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram footer-icon"></i></a>
+      <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook footer-icon"></i></a>
+      <a href="https://twitter.com" target="_blank" aria-label="X (Twitter)"><i class="fab fa-twitter footer-icon"></i></a>
+      <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok footer-icon"></i></a>
+    </div>
+    <p>&copy; 2025 Diseño y Desarrollo: IDW S.A. Todos los derechos reservados.</p>
+  </footer>
+
+  <script type="module" src="js/editarImagen.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
