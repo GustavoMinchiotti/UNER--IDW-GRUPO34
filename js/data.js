@@ -49,3 +49,20 @@ export function getSalones() {
 export function saveSalones(salones) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(salones));
 }
+
+
+const IMAGENES_KEY = "imagenes";
+
+export function inicializarLocalStorageImagen() {
+  if (!localStorage.getItem(IMAGENES_KEY)) {
+    localStorage.setItem(IMAGENES_KEY, JSON.stringify([]));
+  }
+}
+
+export function getImagenes() {
+  return JSON.parse(localStorage.getItem(IMAGENES_KEY)) || [];
+}
+
+export function saveImagenes(imagen) {
+  localStorage.setItem(IMAGENES_KEY, JSON.stringify(imagen));
+}

@@ -6,11 +6,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-salon");
   const tablaBody = document.querySelector("#tabla-salones tbody");
   const btnCancelar = document.getElementById("btn-cancelar");
+  const selectImagen = document.getElementById("imagenSelect");
+  const preview = document.getElementById("preview-imagen");
 
   let salones = getSalones();
   let editandoId = null;
 
-  
+  function cargarImagenesDesdeLocalStorage() {
+    const imagenes = JSON.parse(localStorage.getItem('imagenes')) || [];
+
+    selectImagen.innerHTML = `<option value="">-- Selecciona una imagen --</option>`;
+
+    const optionDefault = document.createElement("option");
+    optionDefault.value = "img/salon default.jpeg";
+    optionDefault.textContent = "Salón Default";
+    selectImagen.appendChild(optionDefault);
+
+    imagenes.forEach(img => {
+      const option = document.createElement("option");
+      option.value = img.base64;
+      option.textContent = img.titulo;
+      selectImagen.appendChild(option);
+    });
+  }
+
+
+  selectImagen.addEventListener("change", () => {
+    if (selectImagen.value) {
+      preview.src = selectImagen.value;
+      preview.style.display = "block";
+    } else {
+      preview.style.display = "none";
+    }
+  });
+
   function renderizarTabla() {
     tablaBody.innerHTML = "";
     salones.forEach(salon => {
@@ -35,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  
   function cargarFormulario(salon) {
     document.getElementById("salon-id").value = salon.id;
     document.getElementById("nombre").value = salon.nombre;
@@ -45,28 +73,24 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("valor").value = salon.valor;
     document.getElementById("estado").value = salon.estado;
     document.getElementById("ubicacion").value = salon.ubicacion;
+    document.getElementById("imagenSelect").value = salon.imagen;
+    preview.src = salon.imagen;
+    preview.style.display = "block";
   }
 
-  
   function limpiarFormulario() {
     form.reset();
     document.getElementById("salon-id").value = "";
+    preview.style.display = "none";
     editandoId = null;
   }
 
-  
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const archivoImagen = document.getElementById("imagen").files[0];
-    let imagenBase64 = "";
+    const imagenBase64 = document.getElementById("imagenSelect").value;
 
-    if (archivoImagen) {
-      imagenBase64 = await convertirImagenABase64(archivoImagen);
-    } else if (editandoId) {
-      const salonExistente = salones.find(s => s.id === editandoId);
-      imagenBase64 = salonExistente.imagen;
-    } else {
+    if (!imagenBase64) {
       alert("Debe seleccionar una imagen.");
       return;
     }
@@ -94,23 +118,10 @@ document.addEventListener("DOMContentLoaded", () => {
     limpiarFormulario();
   });
 
-
-  function convertirImagenABase64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
-  }
-
-
-  
   btnCancelar.addEventListener("click", () => {
     limpiarFormulario();
   });
 
-  
   tablaBody.addEventListener("click", e => {
     if (e.target.closest(".btn-editar")) {
       const id = e.target.closest(".btn-editar").dataset.id;
@@ -132,5 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  cargarImagenesDesdeLocalStorage();
   renderizarTabla();
 });
