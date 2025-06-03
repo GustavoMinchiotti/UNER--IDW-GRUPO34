@@ -73,7 +73,22 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("valor").value = salon.valor;
     document.getElementById("estado").value = salon.estado;
     document.getElementById("ubicacion").value = salon.ubicacion;
-    document.getElementById("imagenSelect").value = salon.imagen;
+
+    let existe = false;
+    for (let option of selectImagen.options) {
+      if (option.value === salon.imagen) {
+        existe = true;
+        break;
+      }
+    }
+    if (!existe && salon.imagen) {
+      const optionExtra = document.createElement("option");
+      optionExtra.value = salon.imagen;
+      optionExtra.textContent = "Imagen actual";
+      selectImagen.appendChild(optionExtra);
+    }
+
+    selectImagen.value = salon.imagen;
     preview.src = salon.imagen;
     preview.style.display = "block";
   }
@@ -90,10 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const imagenBase64 = document.getElementById("imagenSelect").value;
 
-    if (!imagenBase64) {
+    if (!editandoId && !imagenBase64) {
       alert("Debe seleccionar una imagen.");
       return;
     }
+
 
     const nuevoSalon = {
       id: editandoId || Date.now().toString(),
