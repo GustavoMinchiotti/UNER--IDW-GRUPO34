@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     tablaBody.innerHTML = "";
     servicios.forEach(servicio => {
       const tr = document.createElement("tr");
-      console.log(servicio)
       tr.innerHTML = `
         <td>${servicio.nombre}</td>
         <td>$${servicio.valor.toLocaleString()}</td>

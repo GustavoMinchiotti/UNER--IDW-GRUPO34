@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Momentos Mágicos - Administrar Imágenes</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet" href="./css/estilos.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -16,21 +16,22 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Momentos Mágicos</a>
+        <a class="navbar-brand fw-bold" href="./index.html">Momentos Mágicos</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
-            <li class="nav-item"><a class="nav-link" href="institucional.html">Institucional</a></li>
-            <li class="nav-item"><a class="nav-link" href="institucional.html#servicios">Servicios</a></li>
-            <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-            <li class="nav-item"><a class="nav-link" href="editarSalon.html">Salones</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="editarImagen.html">Imágenes</a></li>
-            <li class="nav-item"><a class="nav-link" href="editarServicio.html">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="./catalogo.html">Catálogo</a></li>
+            <li class="nav-item"><a class="nav-link" href="./institucional.html">Institucional</a></li>
+            <li class="nav-item"><a class="nav-link" href="./institucional.html#servicios">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="./contacto.html">Contacto</a></li>
+            <li class="nav-item"><a class="nav-link" href="./editarSalon.html">Salones</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="./editarImagen.html">Imágenes</a></li>
+            <li class="nav-item"><a class="nav-link" href="./editarServicio.html">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" id="cerrar-sesion">Cerrar sesión</a></li>
           </ul>
         </div>
       </div>
@@ -80,7 +81,8 @@
     <p>&copy; 2025 Diseño y Desarrollo: IDW S.A. Todos los derechos reservados.</p>
   </footer>
 
-  <script type="module" src="js/editarImagen.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./js/editarImagen.js"></script>
+  <script type="module" src="./js/protegerPagina.js"></script>
 </body>
 </html>
