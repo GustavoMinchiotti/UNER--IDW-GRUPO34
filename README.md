@@ -8,3 +8,9 @@
 - Francisco Lopez
 - Alicia Viviana Montenegro
 
+
+### Credenciales de Logueo
+
+- Usuario: admin
+- Contraseña: 1234
+
