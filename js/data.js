@@ -1,4 +1,4 @@
-export const salonesEjemplo = [
+export const salonesDefault = [
   {
     id: "1",
     nombre: "Mundo Mágico",
@@ -34,20 +34,20 @@ export const salonesEjemplo = [
   }
 ];
 
-const STORAGE_KEY = "salones";
+const SALONES_KEY = "salones";
 
 export function inicializarLocalStorage() {
-  if (!localStorage.getItem(STORAGE_KEY)) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(salonesEjemplo));
+  if (!localStorage.getItem(SALONES_KEY)) {
+    localStorage.setItem(SALONES_KEY, JSON.stringify(salonesDefault));
   }
 }
 
 export function getSalones() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  return JSON.parse(localStorage.getItem(SALONES_KEY)) || [];
 }
 
 export function saveSalones(salones) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(salones));
+  localStorage.setItem(SALONES_KEY, JSON.stringify(salones));
 }
 
 
@@ -65,4 +65,30 @@ export function getImagenes() {
 
 export function saveImagenes(imagen) {
   localStorage.setItem(IMAGENES_KEY, JSON.stringify(imagen));
+}
+
+
+
+const SERVICIOS_KEY = "servicios";
+
+export const serviciosDefault = [
+  { id: "1", nombre: "Animación", valor: 10000 },
+  { id: "2", nombre: "Castillo inflable y metegol", valor: 12000 },
+  { id: "3", nombre: "Iluminación Láser y Máquinas de Humo", valor: 11000 },
+  { id: "4", nombre: "Disk Jockey", valor: 13000 },
+  { id: "5", nombre: "Catering", valor: 15000 },
+];
+
+export function inicializarServicios() {
+  if (!localStorage.getItem(SERVICIOS_KEY)) {
+    localStorage.setItem(SERVICIOS_KEY, JSON.stringify(serviciosDefault));
+  }
+}
+
+export function getServicios() {
+  return JSON.parse(localStorage.getItem(SERVICIOS_KEY)) || [];
+}
+
+export function saveServicios(servicios) {
+  localStorage.setItem(SERVICIOS_KEY, JSON.stringify(servicios));
 }
