@@ -39,10 +39,12 @@ agregarBtn.addEventListener('click', () => {
   if (serviciosSeleccionados.find(s => s.id === servicioId)) return;
 
   serviciosSeleccionados.push(servicio);
-  renderServicios();
+  renderizarServicios();
+
+  servicioSelect.value = "";
 });
 
-function renderServicios() {
+function renderizarServicios() {
   listaServicios.innerHTML = '';
   serviciosSeleccionados.forEach(servicio => {
     const li = document.createElement('li');
@@ -71,7 +73,7 @@ function actualizarTotal() {
 
 salonSelect.addEventListener('change', actualizarTotal);
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const cliente = nombreInput.value.trim();
@@ -100,6 +102,8 @@ form.addEventListener('submit', (e) => {
   const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
   presupuestos.push(presupuesto);
   localStorage.setItem('presupuestos', JSON.stringify(presupuestos));
+  await generarPDF(presupuesto);
+
 
   alert('Presupuesto guardado exitosamente');
   form.reset();
@@ -107,3 +111,29 @@ form.addEventListener('submit', (e) => {
   totalSpan.textContent = '0';
   serviciosSeleccionados = [];
 });
+
+async function generarPDF(presupuesto) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  doc.setFontSize(16);
+  doc.text("Presupuesto de Evento", 20, 20);
+
+  doc.setFontSize(12);
+  doc.text(`Cliente: ${presupuesto.cliente}`, 20, 35);
+  doc.text(`Fecha: ${new Date(presupuesto.fecha).toLocaleDateString()}`, 20, 45);
+  doc.text(`Salón: ${presupuesto.salon.nombre}`, 20, 55);
+  doc.text(`Valor Salón: $${presupuesto.salon.valor.toLocaleString()}`, 20, 65);
+
+  doc.text("Servicios:", 20, 80);
+  presupuesto.servicios.forEach((servicio, index) => {
+    doc.text(`- ${servicio.nombre}: $${servicio.valor.toLocaleString()}`, 25, 90 + index * 10);
+  });
+
+  const yFinal = 90 + presupuesto.servicios.length * 10 + 10;
+  doc.setFontSize(14);
+  doc.text(`Total: $${presupuesto.total.toLocaleString()}`, 20, yFinal);
+
+  doc.save(`Presupuesto_${presupuesto.cliente.replace(/\s+/g, "_")}.pdf`);
+}
+
