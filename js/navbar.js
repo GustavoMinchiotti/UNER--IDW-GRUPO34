@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <li class="nav-item"><a class="nav-link" href="./editarSalon.html">Salones</a></li>
       <li class="nav-item"><a class="nav-link" href="./editarImagen.html">Imágenes</a></li>
       <li class="nav-item"><a class="nav-link" href="./editarServicio.html">Servicios</a></li>
+      <li class="nav-item"><a class="nav-link" href="./usuario.html">Usuarios</a></li>
       <li class="nav-item"><a class="nav-link" href="#" id="cerrar-sesion">Cerrar sesión</a></li>
     `;
 
